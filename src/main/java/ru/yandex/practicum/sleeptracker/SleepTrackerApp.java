@@ -43,7 +43,7 @@ public class SleepTrackerApp {
         functions.add(new FunctionUserChronotype());
 
         functions.stream().map(n -> n.apply(sleepingSessions))
-                          .forEach(System.out::println);
+                .forEach(System.out::println);
 
     }
 }

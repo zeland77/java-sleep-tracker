@@ -27,14 +27,14 @@ public class SleepTrackerAppTest {
     List<SleepingSession> sleepingSessions = new ArrayList<>();
 
     @Test
-    void FunctionTotalSessionsTestNull() {
+    void functionTotalSessionsTestNull() {
         sleepingSessions.clear();
         FunctionTotalSessions f = new FunctionTotalSessions();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionTotalSessionsTest() {
+    void functionTotalSessionsTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss2);
@@ -43,14 +43,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionMaxSessionDurationTestNull() {
+    void functionMaxSessionDurationTestNull() {
         sleepingSessions.clear();
         FunctionMaxSessionDuration f = new FunctionMaxSessionDuration();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionMaxSessionDurationTest() {
+    void functionMaxSessionDurationTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss2);
@@ -59,14 +59,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionAvgSessionDurationTestNull() {
+    void functionAvgSessionDurationTestNull() {
         sleepingSessions.clear();
         FunctionAvgSessionDuration f = new FunctionAvgSessionDuration();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionAvgSessionDurationTest() {
+    void functionAvgSessionDurationTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss3);
         sleepingSessions.add(ss3);
@@ -75,14 +75,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionMinSessionDurationTestNull() {
+    void functionMinSessionDurationTestNull() {
         sleepingSessions.clear();
         FunctionMinSessionDuration f = new FunctionMinSessionDuration();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionMinSessionDurationTest() {
+    void functionMinSessionDurationTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss2);
@@ -91,14 +91,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionCountSessionBadSleepQltyTestNull() {
+    void functionCountSessionBadSleepQltyTestNull() {
         sleepingSessions.clear();
         FunctionCountSessionBadSleepQlty f = new FunctionCountSessionBadSleepQlty();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionCountSessionBadSleepQltyTest() {
+    void functionCountSessionBadSleepQltyTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss3);
         sleepingSessions.add(ss4);
@@ -107,14 +107,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionCountSleeplessNightsTestNull() {
+    void functionCountSleeplessNightsTestNull() {
         sleepingSessions.clear();
         FunctionCountSleeplessNights f = new FunctionCountSleeplessNights();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), 0), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionCountSleeplessNightsTest() {
+    void functionCountSleeplessNightsTest() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss4);
@@ -123,7 +123,7 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionCountSleeplessNightsTestMonthCrossover() {
+    void functionCountSleeplessNightsTestMonthCrossover() {
         sleepingSessions.clear();
         sleepingSessions.add(ss13);
         sleepingSessions.add(ss14);
@@ -132,7 +132,7 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionCountSleeplessNightsTestTimeOverNight() {
+    void functionCountSleeplessNightsTestTimeOverNight() {
         sleepingSessions.clear();
         sleepingSessions.add(ss15);
         sleepingSessions.add(ss16);
@@ -141,14 +141,14 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionUserChronotypeTestNull() {
+    void functionUserChronotypeTestNull() {
         sleepingSessions.clear();
         FunctionUserChronotype f = new FunctionUserChronotype();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), "Голубь"), f.apply(sleepingSessions));
     }
 
     @Test
-    void FunctionUserChronotypeTestOwl() {
+    void functionUserChronotypeTestOwl() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss2);
@@ -158,7 +158,7 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionUserChronotypeTestEarlyBird() {
+    void functionUserChronotypeTestEarlyBird() {
         sleepingSessions.clear();
         sleepingSessions.add(ss6);
         sleepingSessions.add(ss7);
@@ -168,15 +168,13 @@ public class SleepTrackerAppTest {
     }
 
     @Test
-    void FunctionUserChronotypeTestPigeon() {
+    void functionUserChronotypeTestPigeon() {
         sleepingSessions.clear();
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss6);
         FunctionUserChronotype f = new FunctionUserChronotype();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), "Голубь"), f.apply(sleepingSessions));
     }
-
-
 
 
 }

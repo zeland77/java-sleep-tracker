@@ -21,12 +21,12 @@ public class FunctionUserChronotype implements FunctionSleepTracker {
 
         long countOwl = sleepNights.stream().filter(s -> {
             return s.getDateTimeStartSleep().toLocalTime().isAfter(LocalTime.of(23, 0)) &&
-                   s.getDateTimeFinishSleep().toLocalTime().isAfter(LocalTime.of(6, 0));
+                    s.getDateTimeFinishSleep().toLocalTime().isAfter(LocalTime.of(6, 0));
         }).count();
 
         long countEarlyBird = sleepNights.stream().filter(s -> {
             return s.getDateTimeStartSleep().toLocalTime().isBefore(LocalTime.of(22, 0)) &&
-                   s.getDateTimeFinishSleep().toLocalTime().isBefore(LocalTime.of(7, 0));
+                    s.getDateTimeFinishSleep().toLocalTime().isBefore(LocalTime.of(7, 0));
         }).count();
 
         long countPigeon = sleepingSessions.stream().filter(s -> {
