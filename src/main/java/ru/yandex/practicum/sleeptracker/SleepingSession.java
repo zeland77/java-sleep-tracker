@@ -7,7 +7,7 @@ public class SleepingSession {
     private LocalDateTime dateTimeStartSleep;
     private LocalDateTime dateTimeFinishSleep;
     private SleepQuality sleepQuality;
-    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
 
     public SleepingSession(
             LocalDateTime dateTimeStartSleep,
@@ -20,7 +20,6 @@ public class SleepingSession {
 
     public static SleepingSession parse(String str) {
         String[] sessionItem = str.split(";");
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
         LocalDateTime dateTimeStartSleep = LocalDateTime.parse(sessionItem[0], formatter);
         LocalDateTime dateTimeFinishSleep = LocalDateTime.parse(sessionItem[1], formatter);
         SleepQuality sleepQuality;
