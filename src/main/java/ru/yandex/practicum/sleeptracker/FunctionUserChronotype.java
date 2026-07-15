@@ -6,6 +6,7 @@ import java.util.List;
 
 public class FunctionUserChronotype implements FunctionSleepTracker {
     private final String description = "Хронотип пользователя";
+
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
 

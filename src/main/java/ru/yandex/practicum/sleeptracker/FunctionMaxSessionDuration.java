@@ -5,6 +5,7 @@ import java.util.List;
 
 public class FunctionMaxSessionDuration implements FunctionSleepTracker {
     private final String description = "Максимальная продолжительность сессии (минут)";
+
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         int max = (int) sleepingSessions.stream()

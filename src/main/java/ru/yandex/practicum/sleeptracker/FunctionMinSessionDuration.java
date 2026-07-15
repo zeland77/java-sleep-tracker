@@ -5,6 +5,7 @@ import java.util.List;
 
 public class FunctionMinSessionDuration implements FunctionSleepTracker {
     private final String description = "Минимальная продолжительность сессии (минут)";
+
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         int min = (int) sleepingSessions.stream()

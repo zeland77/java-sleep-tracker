@@ -6,6 +6,7 @@ import java.util.List;
 
 public class FunctionCountSleeplessNights implements FunctionSleepTracker {
     private final String description = "Количество бессонных ночей";
+
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
 

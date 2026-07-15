@@ -5,6 +5,7 @@ import java.util.List;
 
 public class FunctionAvgSessionDuration implements FunctionSleepTracker {
     private final String description = "Средняя продолжительность сессии (минут)";
+
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         int avg = (int) sleepingSessions.stream()
