@@ -16,9 +16,9 @@ public class SleepTrackerAppTest {
     SleepingSession ss6 = SleepingSession.parse("05.10.25 21:30;06.10.25 06:15;NORMAL");
     SleepingSession ss7 = SleepingSession.parse("06.10.25 20:00;07.10.25 05:50;GOOD");
     SleepingSession ss8 = SleepingSession.parse("07.10.25 23:45;08.10.25 06:30;GOOD");
-    SleepingSession ss9 = SleepingSession.parse("08.10.25 23:50;09.10.25 07:10;GOOD");
+    SleepingSession ss9 = SleepingSession.parse("08.10.25 23:50;09.10.25 09:10;GOOD");
     SleepingSession ss10 = SleepingSession.parse("10.10.25 13:00;10.10.25 14:30;NORMAL");
-    SleepingSession ss11 = SleepingSession.parse("10.10.25 23:55;11.10.25 06:10;GOOD");
+    SleepingSession ss11 = SleepingSession.parse("10.10.25 23:55;11.10.25 10:10;GOOD");
     SleepingSession ss12 = SleepingSession.parse("11.10.25 23:10;12.10.25 07:00;BAD");
     SleepingSession ss13 = SleepingSession.parse("30.10.25 23:50;31.10.25 06:30;GOOD");
     SleepingSession ss14 = SleepingSession.parse("31.10.25 23:40;01.11.25 05:30;GOOD");
@@ -119,7 +119,7 @@ public class SleepTrackerAppTest {
         sleepingSessions.add(ss1);
         sleepingSessions.add(ss4);
         FunctionCountSleeplessNights f = new FunctionCountSleeplessNights();
-        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 1), f.apply(sleepingSessions));
+        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 2), f.apply(sleepingSessions));
     }
 
     @Test
@@ -128,7 +128,7 @@ public class SleepTrackerAppTest {
         sleepingSessions.add(ss13);
         sleepingSessions.add(ss14);
         FunctionCountSleeplessNights f = new FunctionCountSleeplessNights();
-        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 0), f.apply(sleepingSessions));
+        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 1), f.apply(sleepingSessions));
     }
 
     @Test
@@ -137,7 +137,7 @@ public class SleepTrackerAppTest {
         sleepingSessions.add(ss15);
         sleepingSessions.add(ss16);
         FunctionCountSleeplessNights f = new FunctionCountSleeplessNights();
-        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 1), f.apply(sleepingSessions));
+        Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), (long) 2), f.apply(sleepingSessions));
     }
 
     @Test
@@ -150,9 +150,9 @@ public class SleepTrackerAppTest {
     @Test
     void functionUserChronotypeTestOwl() {
         sleepingSessions.clear();
-        sleepingSessions.add(ss1);
-        sleepingSessions.add(ss2);
-        sleepingSessions.add(ss3);
+        sleepingSessions.add(ss9);
+        sleepingSessions.add(ss10);
+        sleepingSessions.add(ss11);
         FunctionUserChronotype f = new FunctionUserChronotype();
         Assertions.assertEquals(new SleepingAnalysisResult(f.getDescription(), "Сова"), f.apply(sleepingSessions));
     }

@@ -10,24 +10,11 @@ public class FunctionUserChronotype implements FunctionSleepTracker {
     @Override
     public SleepingAnalysisResult apply(List<SleepingSession> sleepingSessions) {
 
-        List<SleepingSession> sleepNights = sleepingSessions.stream().filter(s -> {
-            long night = ChronoUnit.DAYS.between(s.getDateTimeStartSleep().toLocalDate(),
-                    s.getDateTimeFinishSleep().toLocalDate());
-            if (s.getDateTimeStartSleep().toLocalTime().isBefore(LocalTime.of(6, 0))) {
-                night = 1;
-            }
-            return night == 1;
-        }).toList();
+        long countOwl = sleepingSessions.stream().filter(s -> s.getDateTimeStartSleep().toLocalTime().isAfter(LocalTime.of(23, 0)) &&
+                s.getDateTimeFinishSleep().toLocalTime().isAfter(LocalTime.of(9, 0))).count();
 
-        long countOwl = sleepNights.stream().filter(s -> {
-            return s.getDateTimeStartSleep().toLocalTime().isAfter(LocalTime.of(23, 0)) &&
-                    s.getDateTimeFinishSleep().toLocalTime().isAfter(LocalTime.of(6, 0));
-        }).count();
-
-        long countEarlyBird = sleepNights.stream().filter(s -> {
-            return s.getDateTimeStartSleep().toLocalTime().isBefore(LocalTime.of(22, 0)) &&
-                    s.getDateTimeFinishSleep().toLocalTime().isBefore(LocalTime.of(7, 0));
-        }).count();
+        long countEarlyBird = sleepingSessions.stream().filter(s -> s.getDateTimeStartSleep().toLocalTime().isBefore(LocalTime.of(22, 0)) &&
+                s.getDateTimeFinishSleep().toLocalTime().isBefore(LocalTime.of(7, 0))).count();
 
         long countPigeon = sleepingSessions.stream().filter(s -> {
             long night = ChronoUnit.DAYS.between(s.getDateTimeStartSleep().toLocalDate(),

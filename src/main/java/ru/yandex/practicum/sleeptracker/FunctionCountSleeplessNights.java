@@ -13,9 +13,17 @@ public class FunctionCountSleeplessNights implements FunctionSleepTracker {
         if (sleepingSessions.isEmpty()) {
             return new SleepingAnalysisResult(description, 0);
         }
-        long countNightsInPeriod = ChronoUnit.DAYS.between(sleepingSessions.getFirst().getDateTimeStartSleep().toLocalDate(),
-                sleepingSessions.getLast().getDateTimeFinishSleep().toLocalDate());
-
+        long countNightsInPeriod = 0;
+        if (sleepingSessions.getFirst().getDateTimeStartSleep().toLocalTime().compareTo(LocalTime.of(12, 0)) < 0) {
+            countNightsInPeriod = ChronoUnit.DAYS.between(sleepingSessions.getFirst().getDateTimeStartSleep().toLocalDate(),
+                    sleepingSessions.getLast().getDateTimeFinishSleep().toLocalDate()) + 1;
+        } else {
+            countNightsInPeriod = ChronoUnit.DAYS.between(sleepingSessions.getFirst().getDateTimeStartSleep().toLocalDate(),
+                    sleepingSessions.getLast().getDateTimeFinishSleep().toLocalDate());
+            if (countNightsInPeriod > 0) {
+                countNightsInPeriod++;
+            }
+        }
         long countSleepNights = sleepingSessions.stream().filter(s -> {
 
             long night = ChronoUnit.DAYS.between(s.getDateTimeStartSleep().toLocalDate(),
